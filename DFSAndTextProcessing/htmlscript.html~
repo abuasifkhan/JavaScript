@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Problem</title>
+</head>
+<body>
+<h3>Input:</h3>
+<textarea id="input">3
+5
+0 1 1 "message...."
+1 2 1 "message...."
+2 3 1 "message...."
+1 4 2 "message...."
+0 5 2 "message...."
+2
+0 1 1 "message...."
+1 2 2 "message...."
+1
+0 1 1 "message...."</textarea>
+<br>
+<button type="button" onclick="doTheChores()">Hit me!</button>
+<p id="doc"></p>
+<script src="problemScript.js"></script>
+</body>
+</html>
