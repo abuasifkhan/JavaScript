@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head lang="en">
+	    <meta charset="UTF-8">
+	    <title>AngularJs Basic</title>
+	    <link href="css/bootstrap.min.css" rel="stylesheet">
+	    <link rel="stylesheet" href="css/style.css">
+	    <link href="font-awesome-4.3.0/css/font-awesome.min.css" rel="stylesheet" />
+	</head>
+
+<body ng-app="app" ng-controller="MainController as main">
+	<div class="container margin-top-20">
+		<h1 class='container'>{{main.title}}</h1>
+	</div>
+	<div class="container margin-top-20">
+		<div class="input-group">
+	        <span class="input-group-addon">
+	            <span class="glyphicon glyphicon-search"></span>
+	        </span>
+	        <input type="text" class="form-control" ng-model="main.searchInput">
+    	</div>
+    	<h3>A list of Selise</h3>
+    	<div class="table-responsive">
+    		<table class="table table-bordered">
+		        <tr ng-repeat="show in main.shows | filter:main.searchInput">
+		        	<td>{{show.name}}</td>
+		        	<td>{{show.designation}}</td>
+		        	<td>{{show.email}}</td>
+		        	<td>{{show.year}}</td>
+		        	<td class="text-center"><a class="btn" ng-click="main.remove($index)">Delete</a></td>
+		        </tr>
+	    	</table>
+    	</div>
+	    
+	    <div class="clearfix"></div>
+	    <h3>Add a new Employee</h3>
+	    <form name="main.addForm" class="form" ng-submit="main.addShow()">
+	        <div class="form-group">
+	            <label>Name</label>
+	            <input type="text" class="form-control" ng-model="main.new.name" required />
+	        </div>
+	        <div class="form-group">
+	            <label>Designation</label>
+	            <input type="text" class="form-control" ng-model="main.new.designation" required />
+	        </div>
+	        <div class="form-group">
+	            <label>Email</label>
+	            <input type="email" name="userEmail" class="form-control" ng-model="main.new.email" required />
+	        </div>
+	        <div class="form-group">
+	            <label>Year</label>
+	            <input type="number" min="1900" max="2030" class="form-control" ng-model="main.new.year" required />
+	        </div>
+	        <div class="row">
+	            <div class="col-xs-12">
+	                <button class="btn btn-success pull-right">
+	                	<span class="glyphicon glyphicon-plus-sign"></span> Add
+	                </button>
+	            </div>
+	        </div>
+    	</form>
+
+	</div>
+
+    <script type="text/javascript" src="lib/angular.js"></script>
+   <script src="js/basic.js"></script>
+</body>
+</html>

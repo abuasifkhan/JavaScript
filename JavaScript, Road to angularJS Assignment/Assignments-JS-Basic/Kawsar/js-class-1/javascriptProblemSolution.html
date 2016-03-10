@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        
+     
+        <title>Home Work Task 1</title>
+       
+    </head>
+    <body>
+        
+        
+        <h4>Javascript Program Result:</h4>
+        
+        
+        
+        <script  type="text/javascript">
+        
+         
+           
+       
+        var input = {
+          
+            n:5,
+            nA:[1,2,3,4,5],
+            m:3,
+            mA: [
+                {op:'p',values:[0,1]},
+                {op:'s',values:[1]},
+                {op:'r',values:[]}
+            ]
+            
+        }; 
+            
+        function swap(index1,index2)
+            {
+               var temp = input.nA[index1];
+                input.nA[index1] = input.nA[index2];
+                input.nA[index2] = temp;
+                
+            }
+        function add(value)
+            {   var size = input.n
+                for(var i=0;i<size;i++)
+                    input.nA[i] += value;
+            }
+        function  multiplication(value) 
+            {
+                var size = input.n
+                for(var i=0;i<size;i++)
+                    input.nA[i] *= value;
+            }
+            
+        function division(value)
+            {   var size = input.n
+                for(var i=0;i<size;i++)
+                    input.nA[i] /= value;
+                
+            }
+        function reverse()
+            {
+                var size = input.n/2;
+                for(var i=0;i<size;i++)
+                    swap(i , input.n - i - 1);
+            }
+        
+        
+       function operationOnInput()
+            {
+                
+            for(var i=0;i<input.m;i++)
+            {
+                
+                switch(input.mA[i].op)
+                    {
+                            
+                        case 's': add(input.mA[i].values[0]);
+                            break;
+                        case 'm': multiplication(input.mA[i].values[0]);
+                            break;
+                        case 'd': division(input.mA[i].values[0]);
+                            break;
+                        case 'r' : reverse();
+                            break;
+                        case 'p': swap(input.mA[i].values[0],input.mA[i].values[1]);
+                            
+                    }
+            }
+                
+                
+                for(var i=0;i<input.n;i++)
+                 document.write(input.nA[i] + " ");
+            
+            }
+            
+       
+        operationOnInput();
+        
+                
+        
+           
+        </script>
+        
+        
+        
+    </body>
+</html>

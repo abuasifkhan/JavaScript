@@ -1,0 +1,54 @@
+<html>
+<head>
+</head>
+<body>
+<script type="text/javascript">
+	inputObject = {
+		n:5,
+		nA: [1,2,3,4,5],
+		m:3,
+		mA: [
+			{op:'p', values:[0,1]},
+			{op:'s', values:[1]},
+			{op:'m', values:[5]}
+			]
+	};
+	var i, temp, j;
+	//document.write(inputObject.m);
+	//document.write("<br>");
+	
+	for(i=0;i<inputObject.m;i++){
+		var typ=inputObject.mA[i].op;
+		var value = inputObject.mA[i].values;
+		document.write(typ + " ");
+		//document.write("<br>");
+		temp=inputObject.nA.slice();
+		//document.write(value+" ");
+		//document.write("<br>");
+		
+		if(typ=='s'){
+			for(j=0;j<temp.length;j++)
+				temp[j]=temp[j]+value[0];
+		}
+		else if(typ=='m'){
+			for(j=0;j<temp.length;j++)
+				temp[j]*=value[0];
+		}
+		else if(typ=='d'){
+			for(j=0;j<temp.length;j++)
+				temp[j]=Math.floor(temp[j]/value[0]);
+		}
+		else if(typ=='r'){
+			temp.reverse();
+		}
+		else if(typ=='p'){
+			var tt = temp[value[0]];
+			temp[value[0]]=temp[value[1]];
+			temp[value[1]]=tt;
+		}
+		document.write(temp);
+		document.write("<br>");
+	}
+</script>
+</body>
+</html>

@@ -1,0 +1,100 @@
+
+
+<md-dialog  ng-cloak flex="40" >
+  <form>
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>Registration Form</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="cancel()">
+          <md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+    
+      
+      
+<md-dialog-content>
+      <div class="md-dialog-content">
+        
+          
+          
+ <md-content layout="column">
+    
+            
+  
+    
+      
+          
+      <h3></h3>    
+          
+      <md-input-container >
+        <label>Name</label>
+        <input ng-model="user.name" type="text" placeholder="Enter your name" >
+      </md-input-container>
+          
+      <md-input-container >
+        <label>Age</label>
+        <input ng-model="user.age" type="text" placeholder="Enter your age">
+      </md-input-container>
+          
+          
+   
+        
+        <md-input-container >
+        
+            <label>Class</label>
+        <md-select ng-model="user.class" placeholder="Select your class from drop down">
+              <md-option  ng-repeat= " i in ['one','two','three','four','five','six','seven','eight','nine','ten']">
+                {{i}}
+              </md-option>
+            
+            
+        </md-select>
+       </md-input-container>
+        
+          
+         
+        
+        
+    <md-input-container ng-model="user.section">
+         <md-radio-group layout="row">
+      <md-radio-button value="A" class="md-primary">Section A</md-radio-button>
+      <md-radio-button value="B" class="md-primary"> Section B </md-radio-button>
+      <md-radio-button value="C" class="md-primary">Section C</md-radio-button>
+        </md-radio-group>
+          
+    </md-input-container>
+        
+          <md-input-container >
+        <label>Roll No</label>
+        <input ng-model="user.roll" type="text" placeholder="Enter your roll no" >
+      </md-input-container>
+          
+    <md-datepicker ng-model="user.date" md-placeholder="Enter date"></md-datepicker>
+     
+    
+          
+</md-content>
+          
+          
+          
+          
+          
+          
+          
+          
+      </div>
+</md-dialog-content>
+<md-dialog-actions layout="row">
+      
+      <span flex></span>
+      <md-button  class="md-raised md-primary" ng-click="add(user)">
+       Add
+      </md-button>
+      <md-button  class="md-raised md-primary" ng-click="cancel()" style="margin-right:20px;">
+        cancel
+      </md-button>
+</md-dialog-actions>
+  </form>
+</md-dialog>

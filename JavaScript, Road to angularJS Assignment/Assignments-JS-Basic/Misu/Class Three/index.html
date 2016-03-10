@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="scripts/mainApp.js"></script>
+    <script src="scripts/controller.js"></script>
+</head>
+
+<body>
+
+    
+    <div class="container">
+        <h1>User Registration</h1>
+        <div ng-app="mainApp" ng-controller="usersController as vm ">
+            <form name="myForm" novalidate>
+
+                <p>
+                    Username:<br>
+                    <input type="text" name="user" ng-model="vm.user.username" required>
+                    <span style="color: red" ng-show="myForm.user.$dirty && myForm.user.$invalid">
+                        <span ng-show="myForm.user.$error.required">Username is required.</span>
+                    </span>
+                </p>
+
+                <p>
+                    Email:<br>
+                    <input type="email" name="email" ng-model="vm.user.email" required>
+                    <span style="color: red" ng-show="myForm.email.$dirty && myForm.email.$invalid">
+                        <span ng-show="myForm.email.$error.required">Email is required.</span>
+                        <span ng-show="myForm.email.$error.email">Invalid email address.</span>
+                    </span>
+                </p>
+
+                <p>
+                    <input type="submit" ng-click="vm.addUser(vm.user)"
+                           ng-disabled="myForm.user.$dirty && myForm.user.$invalid ||
+                        myForm.email.$dirty && myForm.email.$invalid">
+                </p>
+
+            </form>
+            <h1>Showing User List</h1>
+            <table class="table table-striped">
+                <tr>
+                    <th>User Name</th>
+                    <th>Email</th>
+                </tr>
+                <tr ng-repeat="person in vm.users">
+                    <td>{{person.username}}</td>
+                    <td>{{person.email}}</td>
+                    <td><button ng-click="vm.getDetails(person)"> Details</button></td>
+                    <td><button ng-click="vm.deleteUser(person)"> Delete</button></td>
+                </tr>
+            </table>
+            <div>
+                <h1>Showing User Details</h1>
+                <div>
+                    <p>Name :<b><em>{{vm.selectedPerson.username}}</em></b></p>
+                    <p>Email :<b><em>{{vm.selectedPerson.email}}</em></b></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,89 @@
+<div layout="row" layout-fill layout-align="center center" vertical-center-layout-fix class="flex">
+    <div class="center-container" flex layout="row" layout-align="center center">
+        <div flex="50" flex-md="50" flex-sm="70" flex-xs="100">
+            <md-card>
+                <md-card-title>
+                    <md-card-title-text>
+                        <span class="md-headline">Create New Ticket</span>
+                    </md-card-title-text>
+                </md-card-title>
+                <md-card-content>
+                    <form method="post" autocomplete="off">
+                        <section>
+                            <md-button flex="40" class="md-raised md-warn" ng-click="vm.getSubsidiaries()">Get Subsidiary</md-button>
+                        </section>
+                        <md-input-container class="md-block">
+
+                            <input ng-model="vm.Ticket.customar" type="text" ng-readonly="true" placeholder="Customar">
+                        </md-input-container>
+                        <md-input-container class="md-block">
+                            <label>Customar HQ</label>
+                            <input ng-model="vm.Ticket.customarHQ" type="text" ng-readonly="true" placeholder="Customar HQ">
+                        </md-input-container>
+
+                        <div layout-gt-sm="row">
+                            <md-autocomplete md-no-cache=""
+                                             md-selected-item="vm.Ticket.ProjectName"
+                                             md-search-text="vm.searchProjectName"
+                                             md-items="ProjectName in vm.getProjectName(vm.searchProjectName)"
+                                             md-item-text="ProjectName"
+                                             md-min-length="0"
+                                             placeholder="Select Project Name">
+                                <span md-highlight-text="searchProjectName">{{ProjectName}}</span>
+                            </md-autocomplete>
+
+                            <section>
+                                <md-button class="md-raised " ng-click="vm.requestNewproject()">Request New Project</md-button>
+                            </section>
+                        </div>
+                        <md-list>
+                            <md-subheader class="md-no-sticky">Benefits</md-subheader>
+                            <md-list-item ng-repeat="benifit in vm.benefits">
+                                <md-checkbox class=" md-secondary" ng-model="vm.Ticket.benefit">
+                                </md-checkbox>
+                                <p>{{benifit}}</p>
+                            </md-list-item>
+                        </md-list>
+
+                        <md-input-container class="md-block" flex-gt-sm>
+                            <label>Currency</label>
+                            <md-select ng-model="vm.Ticket.currency">
+                                <md-option value="CHE">CHE</md-option>
+                                <md-option value="AMD">AMD</md-option>
+                                <md-option value="CAD">CAD</md-option>
+                            </md-select>
+                        </md-input-container> <br />
+                        <md-input-container class="md-block">
+                            <label>Annual Premium</label>
+                            <input ng-model="vm.Ticket.annualPremium" placeholder="Annual Premium">
+                        </md-input-container>
+
+                        <md-datepicker ng-model="vm.Ticket.effictiveDate" md-placeholder="Effictive Date">
+                        </md-datepicker>
+
+                        <md-input-container class="md-block">
+                            <label>Insured Lives</label>
+                            <input ng-model="vm.Ticket.insuredLives" placeholder="Insured Lives">
+                        </md-input-container>
+
+                        <md-input-container class="md-block">
+                            <label>Single Premium</label>
+                            <input ng-model="vm.Ticket.singlePremium" placeholder="Single premium">
+                        </md-input-container>
+
+                        <md-input-container class="md-block">
+                            <label>Comments</label>
+                            <textarea ng-model="vm.Ticket.message" rows="3"></textarea>
+                        </md-input-container>
+                    </form>
+                </md-card-content>
+                <md-card-actions layout="column" layout-align="start">
+                    <section layout="row" layout-align="center" layout-wrap>
+                        <md-button class="md-raised md-primary" ng-click="vm.submit()">Submit</md-button>
+                    </section>
+                </md-card-actions>
+            </md-card>
+        </div>
+    </div>
+
+</div>

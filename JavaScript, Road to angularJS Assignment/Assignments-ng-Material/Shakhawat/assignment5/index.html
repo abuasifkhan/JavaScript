@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="SimpleApp">
+   <head>
+      <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.5/angular-material.min.css">
+      <link rel="stylesheet" href="style.css">
+      <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+      <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-animate.min.js"></script>
+      <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-aria.min.js"></script>
+      <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-messages.min.js"></script>
+      <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.5/angular-material.min.js"></script>
+      <script src="cnt.js"> </script>
+   </head>
+   <body >
+     
+      <div ng-controller="simplecontroller">
+
+
+      <md-content class="md-padding" layout-xs="column" layout="row">
+    <div flex-xs flex-gt-xs="50" layout="column">
+      <md-card>
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">{{collection[0].name}}</span>
+            <span class="md-content">Age :{{collection[0].age}}</span>
+            <span class="md-content">Class: {{collection[0].class}}</span>
+            <span class="md-content">Roll : {{collection[0].roll}}</span>
+            <span class="md-content">Birth Date :{{collection[0].date}}</span>
+          </md-card-title-text>
+          <md-card-title-media>
+            <div class="md-media-lg card-media"></div>
+          </md-card-title-media>
+        </md-card-title>
+      </md-card>
+    </div>
+  </md-content>
+
+          <form ng-submit="addEntry()">
+          <md-input-container class="md-block" flex-gt-sm="">
+          Name: <input type="text"  md-maxlength="30" required="" name="name" ng-model="user.name">
+          age: <input type="number" md-maxlength="30" required="" name="age" ng-model="user.age">
+          Class: <input type="text" md-maxlength="30" required="" name="class" ng-model="user.class">
+          Roll: <input type="number" md-maxlength="30" required="" name="roll" ng-model="user.roll">
+          Birth Date: <input type="date" md-maxlength="30" required="" name="date" ng-model="user.date">
+          <input type="submit" value="Submit">
+          </form>
+ 
+      </div>
+   </body>
+</html>

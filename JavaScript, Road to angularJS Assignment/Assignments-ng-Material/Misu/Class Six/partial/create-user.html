@@ -1,0 +1,68 @@
+﻿<md-content class="md-padding" layout-xs="column" layout="row">
+    <div flex-xs flex-gt-xs="30" layout="column">
+        <md-card>
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline">Student Registration</span>
+                </md-card-title-text>
+                <md-card-title-media>
+
+                </md-card-title-media>
+            </md-card-title>
+            <div class="md-media-lg card-media">
+                <div layout="row" layout-align="center center">
+
+                    <form name="userForm">
+
+                        <md-input-container>
+                            <label>Name</label>
+                            <input name="name" ng-model="vm.user.name" required md-maxlength="10" minlength="4">
+                        </md-input-container>
+
+
+                        <md-input-container>
+                            <label>Age</label>
+                            <input name="age" ng-model="vm.user.age" required md-maxlength="10" minlength="4">
+                        </md-input-container>
+
+
+                        <br />
+                        <md-input-container>
+                            <div>
+                                <label>Class</label>
+                                <md-select ng-model="vm._class" md-placeholder="Class">
+                                    <md-option ng-repeat="class in vm._classes" value="{{class}}">
+                                        {{class}}
+                                    </md-option>
+                                </md-select>
+                            </div>
+                        </md-input-container>&emsp;&emsp;
+                        <md-input-container>
+                            <label>Roll</label>
+                            <input name="roll" ng-model="vm.user.roll" required md-maxlength="10" minlength="4">
+                        </md-input-container>
+                        <br />
+                        <h4>Select Section</h4>
+                        <md-radio-group ng-model="vm.section">
+
+                            <md-radio-button value="A" class="md-primary">A</md-radio-button>
+                            <md-radio-button value="B"> B </md-radio-button>
+                            <md-radio-button value="C">C</md-radio-button>
+                        </md-radio-group>
+
+
+                        <h4>Birth Date</h4>
+                        <md-content>
+                            <md-datepicker ng-model="vm.dateOfBirth" md-placeholder="Enter birth date"></md-datepicker>
+                        </md-content>
+                      
+                    </form>
+
+                </div>
+            </div>
+            <md-card-actions layout="row" layout-align="end center">
+                <md-button class="md-raised md-primary" ng-click="vm.addUser(vm.user)">Save</md-button>
+            </md-card-actions>
+        </md-card>
+    </div>
+</md-content>

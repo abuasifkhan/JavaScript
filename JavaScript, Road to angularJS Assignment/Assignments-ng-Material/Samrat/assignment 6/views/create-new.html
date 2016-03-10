@@ -1,0 +1,36 @@
+<div >
+<h1>Create New User</h1>
+<form name="signup" autocomplete="off">
+    <md-input-container class="md-block">
+        <label for="fullname">Full Name</label>
+        <input id="fullname" label="fullname" name="fullname" type="text" ng-model="vm.signupModel.fullname" required ng-maxlength="100" md-autofocus />
+        <div ng-messages="signup.fullname.$error" ng-if="signup.fullname.$dirty">
+           
+        </div>
+    </md-input-container>
+    <md-input-container class="md-block">
+        <label for="email" > Email</label>
+        <input id="email" label="email" name="email" type="email" ng-model="vm.signupModel.email" custom-validator="emailAvailable" ng-model-options="{ updateOn: 'blur' }" required ng-maxlength="40" />
+        <div ng-messages="signup.email.$error" ng-if="signup.email.$dirty">
+           
+        </div>
+    </md-input-container>
+    <md-input-container class="md-block">
+        <label for="password" >Password</label>
+        <input id="password" label="password" name="password" type="password" ng-model="vm.signupModel.Password" required ng-pattern="vm.passwordStrengthRegex" app-same-password="signup.confirm" ng-model-options="{ allowInvalid: true }" />
+        <div ng-messages="signup.password.$error" role="alert" ng-if="signup.password.$dirty">
+           
+        </div>
+    </md-input-container>
+    <md-input-container class="md-block">
+        <label for="confirm-password" >Confirm Password</label>
+        <input id="confirm-password" label="confirm-password" name="confirm" type="password" ng-model="vm.confirmPassword" required app-same-password="signup.password" />
+        <div ng-messages="signup.confirm.$error" role="alert" ng-if="signup.confirm.$dirty">
+           
+        </div>
+    </md-input-container>
+    <div class="text-center">
+        <md-button class="md-primary md-raised" ng-click="vm.addUser(signup)" >Submit</md-button>
+    </div>
+</form>
+</div>

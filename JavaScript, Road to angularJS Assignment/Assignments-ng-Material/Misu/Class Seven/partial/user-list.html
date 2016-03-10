@@ -1,0 +1,29 @@
+﻿<md-content>
+    <md-toolbar>
+        <md-button class="md-icon-button" aria-label="More">
+            <md-icon md-svg-icon="../images/Search.svg" ng-click="vm.showSearchField=true"></md-icon>
+            <md-tooltip md-direction="right">
+                Search
+            </md-tooltip>
+        </md-button>
+        <md-input-container class="margin-0 padding-top-24" md-no-float ng-if="vm.showSearchField">
+            <input type="text" flex class="full-width md-subhead" style="border: none" ng-model="vm.strict" md-autofocus placeholder="Search Student" />
+        </md-input-container>
+    </md-toolbar>
+    <md-list class="column">
+        <md-subheader class="md-no-sticky">Student List</md-subheader>
+        <md-list-item class="md-3-line" text-align="center center" ng-repeat="person in vm.users  | filter:vm.strict">
+            <div class="md-list-item-text" layout="column" ng-click="vm.showAlert($event,$index)" md-swipe-left="vm.onSwipeLeft($event,$index)">
+                <p>
+                    <b>Name:</b>&emsp;{{ person.name }}
+                </p>
+                <p>
+                    <b>Roll:</b>&emsp;{{ person.roll }}
+                </p>
+            </div>
+            <md-divider></md-divider>
+        </md-list-item>
+    </md-list>
+</md-content>
+
+

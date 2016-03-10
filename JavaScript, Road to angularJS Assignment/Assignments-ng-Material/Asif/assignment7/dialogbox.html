@@ -1,0 +1,23 @@
+<md-dialog aria-label="Details of Student"  ng-cloak>
+    <form >
+        <md-toolbar class="demo-swipe" md-swipe-left="onSwipeLeft()">
+            <div class="md-toolbar-tools">
+                <h2 class="no-select">Details of Student</h2>
+                <span flex></span>
+
+            </div>
+        </md-toolbar>
+        <div class="demo-swipe" md-swipe-left="onSwipeLeft()">
+            <h3 class="no-select"> Name: {{Name}}</h3>
+            <h3 class="no-select"> Roll: {{Roll}}</h3>
+            <h3 class="no-select"> Age: {{Age}}</h3>
+            <h3 class="no-select"> Class: {{Class}}</h3>
+            <h3 class="no-select"> Section: {{Section}}</h3>
+            <h3 class="no-select"> Date: {{Day}}/{{Month}}/{{Year}}</h3>
+        </div>
+
+        <md-dialog-actions layout="row" layout-align="center">
+            <md-button class="md-raised" ng-click="dismissIt()">Ok</md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>

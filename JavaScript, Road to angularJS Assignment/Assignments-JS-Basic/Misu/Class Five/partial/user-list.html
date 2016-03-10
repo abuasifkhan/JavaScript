@@ -1,0 +1,16 @@
+﻿<div>
+    <h1>Showing User List</h1>
+    <table class="table table-striped">
+        <tr>
+            <th>User Name</th>
+            <th>Email</th>
+        </tr>
+        <tr ng-repeat="person in vm.users">
+            <td>{{person.username}}</td>
+            <td>{{person.email}}</td>
+            <td><button ng-click="vm.getDetails($index)"> Details</button></td>
+            <td><button ng-click="vm.deleteUser($index)"> Delete</button></td>
+            <td><button ng-click="vm.editUser($index)"> Update</button></td>
+        </tr>
+    </table>
+</div>

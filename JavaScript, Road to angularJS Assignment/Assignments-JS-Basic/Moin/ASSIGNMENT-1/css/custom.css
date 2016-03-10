@@ -1,0 +1,14 @@
+body{
+    background-color:#ffffff;
+    font-size: 16px;
+    color: black;
+    padding: 30px 0px;
+}
+.from_background{
+	background-color: #eceade;
+	padding: 10px 0px 40px;
+}
+h3{
+	padding-bottom: 10px;
+	border-bottom: 1px solid #a1a4ba;
+}

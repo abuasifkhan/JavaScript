@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html ng-app="student" >
+   <head>
+      <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.5/angular-material.min.css">
+      <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+      <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-animate.min.js"></script>
+      <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-aria.min.js"></script>
+      <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-messages.min.js"></script>
+      <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.5/angular-material.min.js"></script>
+      <script type="text/javascript" src="student.config.js"></script>
+      <script type="text/javascript" src="service/student.service.js"></script>
+      <script type="text/javascript" src="controller/student.controller.js"></script>
+      <script type="text/javascript" src="controller/student.viewStudent.controller.js"></script>
+      <script type="text/javascript" src="controller/student.addNewStudent.controller.js"></script>
+   </head>
+   <body ng-controller="studentController as vm" ng-cloak>
+      <div layout="row" layout-fill layout-align="center center" vertical-center-layout-fix class="flex">
+        <div class="center-container" flex layout="row" layout-align="center center">
+        <div flex="50" flex-md="50" flex-sm="70" flex-xs="100">
+
+          <md-card ng-hide="vm.hideFrom">
+            <md-card-title>
+              <md-card-title-text>
+                <md-toolbar>
+                   <div class="md-toolbar-tools">
+                       <h2>Student Registration Form</h2>
+                       <span flex></span>
+                   </div>
+             </md-toolbar>
+            </md-card-title-text>
+            </md-card-title>
+            <md-card-content>
+             <form>
+                <form method="post" autocomplete="off">
+                    <div layout-gt-sm="row">
+                        <md-input-container class="md-block" flex-gt-sm>
+                            <label>First name</label>
+                            <input ng-model="vm.student.firstName">
+                        </md-input-container>
+                        <md-input-container class="md-block" flex-gt-sm>
+                            <label>Last Name</label>
+                            <input ng-model="vm.student.lastName" required>
+                        </md-input-container>
+                    </div>
+                    <md-input-container class="md-block">
+                        <input ng-model="vm.student.age" type="text" placeholder="Age">
+                    </md-input-container>
+                                    
+                    <md-input-container class="md-block" flex-gt-sm>
+                        <label>Gender</label>
+                        <md-select ng-model="vm.student.gender">
+                            <md-option ng-repeat="gender in ['Male','Female']">
+                                {{gender}}
+                            </md-option>
+                        </md-select>
+                    </md-input-container> <br>
+
+                  <md-autocomplete 
+                            md-no-cache=""
+                            md-selected-item="vm.student.stClass" 
+                            md-search-text="vm.searchText" 
+                            md-items="stClass in vm.getMatches(vm.searchText)" 
+                            md-item-text="stClass"
+                            md-min-length="0"
+                            placeholder="Select your class">
+                    <span md-highlight-text="searchText">{{stClass}}</span>
+                  </md-autocomplete> <br> <br>
+
+<!--                     <md-input-container class="md-block" flex-gt-sm>
+                        <label>Class</label>
+                        <md-select ng-model="vm.student.stClass">
+                            <md-option ng-repeat="stClass in vm.stClasses">
+                                {{stClass}}
+                            </md-option>
+                        </md-select>
+                    </md-input-container> <br> -->
+
+                   <md-radio-group class="md-block" flex-gt-sm ng-model="vm.student.section">
+                      <label>Section</label>
+                      <md-radio-button layout-gt-sm="col" ng-repeat="section in ['Section A','Section B','Section C']" value='{{section}}'>{{section}}</md-radio-button>
+                   </md-radio-group> <br>
+
+                    <md-input-container class="md-block">
+                        <input ng-model="vm.student.roll" type="text" placeholder="Roll No.">
+                    </md-input-container>
+
+                    <md-datepicker ng-model="vm.student.birthDate" md-placeholder="Birth Date">
+                    </md-datepicker>
+
+                </form>
+
+            </md-card-content>
+            <md-card-actions layout="column" layout-align="start">
+                    <section layout="row" layout-align="center" layout-wrap>
+                      <md-button flex="40" class="md-raised md-primary" ng-click="vm.saveStudent()">Submit</md-button> 
+                      <md-button flex="40" class="md-raised md-warn" ng-click="vm.reset()">Reset</md-button>
+                    </section>
+            </md-card-actions>
+          </md-card>
+
+          <md-card ng-show="vm.hideFrom">
+            <md-card-title>
+              <md-card-title-text>
+                <md-toolbar>
+                   <div class="md-toolbar-tools">
+                       <h2>Informations of Students</h2>
+                       <span flex></span>
+                   </div>
+
+             </md-toolbar>
+            </md-card-title-text>
+            </md-card-title>
+            <md-card-content>
+            
+<!--             <md-icon md-font-icon="icon-search" class="ng-scope ng-isolate-scope md-jamahook-theme md-font icon-search material-icons" aria-hidden="true"></md-icon>
+ -->
+            <md-icon md-font-icon="search-icon.png"></md-icon>
+              <form flex name="filter.form">
+                <md-input-container class="md-block margin-0 padding-top-24" md-no-float>
+                    <input type="text" flex class="full-width" style="border:1" ng-model="searchKeyword" placeholder="Search Student" />
+                </md-input-container>
+              </form>
+
+            <div ng-repeat="(classes, value) in vm.allclass">
+              
+               <div class="demo-swipe" ng-if="value.students.length>0">
+                <md-subheader class="md-primary"> Students of {{classes}}</md-subheader>
+                  <md-list>
+                    <md-list-item>
+                            <p> Name </p> <p>  Roll </p>
+                    </md-list-item>
+                    
+                    <md-divider></md-divider>
+                  </md-list>
+                  <md-list ng-repeat="student in value.students | filter: searchKeyword">
+                    <md-list-item md-swipe-left="vm.onSwipeLeft(classes, student)" ng-click="vm.showStudent(classes, student)">
+                        <p>{{student.firstName}} {{student.lastName}}  </p> <p> {{student.roll}}</p>
+                    </md-list-item>
+                     <md-divider></md-divider>
+              </div>
+            </div>
+              <!-- <md-subheader class="md-primary"> Students of {{vm.StudentOfClassSeven[0].stClass}}</md-subheader>
+               <div class="demo-swipe" md-swipe-right="onSwipeRight()">
+                  <md-list ng-repeat="student in vm.StudentOfClassSeven">
+                    <md-list-item>
+                        <p>{{student.firstName}} {{student.lastName}}  </p> <p> {{student.roll}}</p>
+                    </md-list-item>
+                     <md-divider></md-divider>
+              </div>    -->           
+
+            </md-card-content>
+            <md-card-actions layout="column" layout-align="start">
+                    <section layout="row" layout-align="center" layout-wrap>
+                      <md-button flex="40" class="md-raised md-primary" ng-click="vm.addAnother()">Add New Student</md-button> 
+                         <md-button class="md-fab md-accent md-fab-right md-hue-2" aria-label="Create New Widget" ng-click="vm.addStudent($event)">
+                          <md-icon md-font-icon="icon-add"></md-icon>
+                        </md-button>
+                    </section>
+            </md-card-actions>
+          </md-card>
+               </div>
+            </div>
+      </div>
+        </div>
+    </div>
+    </form>
+   </body>
+</html>

@@ -1,0 +1,103 @@
+<html>
+<head>
+    <title>Assignment 2</title>
+<script>
+var graph;
+
+
+
+function  Main(){
+    var raw = document.getElementById('inp').value.split('\n');
+    var cas = parseInt(raw[0],10);
+    var  test=1;
+    for(var C=1;C<=cas;C++)
+    {
+        var edge = parseInt(raw[test],10);
+         test++;
+        graph=new Array(edge+10);
+        for(var k=0;k<=edge;k++)
+           graph[k]=new Array();
+        for(var l=1;l<=edge;l++) 
+        {
+            var m = "";
+            var input = "";
+            var pos = false;
+            for (var k=0; k < raw[test].length; k++)
+            {
+                if (raw[test][k] == '\"')
+                    pos = true;
+                if (pos == true)
+                    m += raw[test][k];
+                if (pos == false) input += raw[test][k];
+            }
+             test++;
+
+            var t = input.split(" ");
+            var u = parseInt(t[0]);
+            var v = parseInt(t[1]);
+            var w = parseInt(t[2]);
+            var temp = E(u,v,w,m);
+            graph[u].push(temp);
+        }
+
+        for(var l=0;l<=edge;l++)
+        {
+            graph[l].sort(comp);
+        } 
+       document.write("Case :"+C+"<br>");
+        rec(0,0);
+        document.write("==========<br>");
+    }
+}
+
+var E = function (x, y, z, a) {
+    return{
+        U:x,
+        V:y,
+        W:z,
+        M: a,
+    }
+}
+
+function comp (a,b){
+    if(a.W> b.W)return -1;
+    else if(a.W< b.W) return 1;
+    else return 0;
+}
+
+
+var rec = function(u, d){
+    for(var kt=0;kt<graph[u].length;kt++){
+        var v = graph[u][kt].V;
+        for(var i=0;i<d;i++)
+            document.write("-");
+        document.write(v);
+        document.write(" ");
+        document.write(graph[u][kt].M);
+        document.write("<br>");
+        rec(v,d+1);
+    }
+}
+</script>
+
+</head>
+<body>
+<h1>Input </h1>
+<textarea id="inp">
+3
+5
+0 1 1 "m 1...."
+1 2 1 "m 2...."
+2 3 1 "m 3...."
+1 4 2 "m 4...."
+0 5 2 "m 5...."
+2
+0 1 1 "m 6...."
+1 2 2 "m 7...."
+1
+0 1 1 "m 8...."
+</textarea>
+<button type="button" onclick="Main()">Submit</button>
+
+</body>
+</html>

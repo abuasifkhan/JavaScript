@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="appHomeWork">
+   <head>
+      <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.5/angular-material.min.css">
+      <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+      <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-animate.min.js"></script>
+      <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-aria.min.js"></script>
+      <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-messages.min.js"></script>
+      <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.5/angular-material.min.js"></script>
+      <script src="app.js"></script>
+   </head>
+<body ng-controller="SubmitController" >
+      <md-toolbar >
+         <div class="md-toolbar-tools">
+            <h1>Angular Material Home Work</h1>
+         </div>
+      </md-toolbar>
+
+   
+       
+       
+<div >
+    
+    
+  <md-content>
+    <md-tabs md-dynamic-height md-border-bottom>
+      <md-tab label="Registration">
+        <md-content class="md-padding"  layout="row" layout-align="center start">
+          
+            
+                   
+    <div layout="column"  class="md-whiteframe-z2" flex="30">
+    
+      
+          
+      <h3>Student Registration Form</h3>    
+          
+      <md-input-container >
+        <label>Name</label>
+        <input ng-model="user.name" type="text" placeholder="Enter your name" >
+      </md-input-container>
+          
+      <md-input-container >
+        <label>Age</label>
+        <input ng-model="user.age" type="text" placeholder="Enter your age">
+      </md-input-container>
+          
+          
+   
+        
+        <md-input-container >
+        
+            <label>Class</label>
+        <md-select ng-model="user.class" placeholder="Select your class from drop down">
+              <md-option >
+                One
+              </md-option>
+            <md-option >
+                Two
+              </md-option>
+            <md-option >
+                Three
+              </md-option>
+            <md-option >
+                Four
+              </md-option>
+            
+            <md-option >
+                Five
+              </md-option>
+            
+            <md-option >
+                Six
+              </md-option>
+            
+            <md-option >
+               Seven
+              </md-option>
+            
+            <md-option >
+                Eight
+              </md-option>
+            
+            <md-option >
+                Nine
+              </md-option>
+            
+            <md-option >
+                Ten
+              </md-option>
+            
+        </md-select>
+        
+            
+            
+        </md-input-container>
+        
+          
+         
+        
+        
+    <md-input-container ng-model="user.section">
+         <md-radio-group layout="row">
+      <md-radio-button value="A" class="md-primary">Section A</md-radio-button>
+      <md-radio-button value="B" class="md-primary"> Section B </md-radio-button>
+      <md-radio-button value="C" class="md-primary">Section C</md-radio-button>
+        </md-radio-group>
+          
+    </md-input-container>
+        
+        
+        
+      
+          
+          
+          <md-input-container >
+        <label>Roll No</label>
+        <input ng-model="user.roll" type="text" placeholder="Enter your roll no" >
+      </md-input-container>
+          
+          
+          
+          
+    <md-datepicker ng-model="user.date" md-placeholder="Enter date"></md-datepicker>
+          
+          
+        
+        <div flex="20">
+        
+        
+        <md-button class="md-raised md-primary" ng-click="add()">Save</md-button>
+        
+        </div>          
+    
+    
+    </div>
+            
+            
+        </md-content>
+      </md-tab>
+      <md-tab label="Detail">
+        <md-content class="md-padding">
+          
+          
+          
+            
+                             
+ <div  ng-repeat="list in userlist">
+                
+               
+             
+                   <h2>{{list.name}} </h2> 
+                    
+                  
+                    
+                     
+                    
+                    
+
+                
+                
+            
+                
+</div>
+            
+            
+            
+            
+          
+          
+          </md-content>
+      </md-tab>
+    
+    </md-tabs>
+  </md-content>
+    
+    
+    
+</div>
+       
+       
+       
+     
+       
+       
+       
+       
+   </body>
+</html>
+

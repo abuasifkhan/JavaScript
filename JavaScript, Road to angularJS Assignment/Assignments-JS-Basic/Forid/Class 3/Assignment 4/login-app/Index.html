@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html ng-app="user-login">
+	<head>
+		<title>JavaScript</title>
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="angular.min.js"></script>
+    <script type="text/javascript" src="user-login.config.js"></script>
+    <script type="text/javascript" src="controller/user-login.controller.js"></script>
+	</head>
+	<body>
+		<div>
+			<div class="container">
+			     <ul class="nav nav-tabs">
+                    <li  class="active"><a href="#login" data-toggle="tab">Login</a></li>
+                    <li ><a href="#create" data-toggle="tab">Create Account</a></li>
+            </ul>
+
+			<div class="tab-content"  ng-controller="userLoginController as vm">
+  				<div class="tab-pane fade in active" id="login" >
+                    <form method="POST" id="loginForm" ng-submit="vm.login()" role="form">
+                      <fieldset>
+							            <div class="col-lg-5 well">
+                          		<div id="legend">
+                            		<legend class="">Login</legend>
+                          		</div>  
+                          		<div class="form-group" ng-class="{ 'has-error': form.username.$dirty && form.username.$error.required }">
+                            		<label class="form-label"  for="username">Username</label>
+                             		<input type="text" id="username" name="username" placeholder=" Username" class="form-control" ng-model="vm.username" required>
+                                <span ng-show="form.username.$dirty && form.username.$error.required" class="help-block">Username is required</span>
+                          		</div>
+                          		<div class="form-group"  ng-class="{ 'has-error': form.password.$dirty && form.password.$error.required }">
+                            		<label class="form-label" for="password">Password</label>
+                              	<input type="password" id="password" name="password" placeholder="Password" class="form-control" ng-model="vm.password" required>
+                                <span ng-show="form.password.$dirty && form.password.$error.required" class="help-block">Password is required</span>
+                          		</div> <br>
+     							            <div>
+     								             <button type="submit" name="submit" class="btn btn-lg btn-info">Login</button> 
+     						             	</div>
+							            </div>
+                      </fieldset>
+                    </form>
+                </div>
+  				<div class="tab-pane fade" id="create">
+					<div class="col-lg-8 well" id="tab">
+  				  		<h1 class="well well-sm" align="left">Registration Form</h1>
+						<div class="row" >
+							<form  method="POST" name="registrationForm" ng-submit="vm.register()" role="form">
+               <div class="col-xs-12">
+                <input type="hidden" ng-model="vm.user.id" />
+                <div class="form-group" ng-class="{ 'has-error': form.firstName.$dirty && form.firstName.$error.required }">
+                    <label for="username">First name</label>
+                    <input type="text" name="firstName" id="firstName" class="form-control" ng-model="vm.user.firstName" required />
+                    <span ng-show="form.firstName.$dirty && form.firstName.$error.required" class="help-block">First name is required</span>
+                </div>
+                <div class="form-group" ng-class="{ 'has-error': form.lastName.$dirty && form.lastName.$error.required }">
+                    <label for="username">Last name</label>
+                    <input type="text" name="lastName" id="Text1" class="form-control" ng-model="vm.user.lastName" required />
+                    <span ng-show="form.lastName.$dirty && form.lastName.$error.required" class="help-block">Last name is required</span>
+                </div>
+                <div class="form-group" ng-class="{ 'has-error': form.username.$dirty && form.username.$error.required }">
+                    <label for="username">Username</label>
+                    <input type="text" name="username" id="username" class="form-control" ng-model="vm.user.username" required />
+                    <span ng-show="form.username.$dirty && form.username.$error.required" class="help-block">Username is required</span>
+                </div>
+                <div class="form-group" ng-class="{ 'has-error': form.password.$dirty && form.password.$error.required }">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="password" class="form-control" ng-model="vm.user.password" required />
+                    <span ng-show="form.password.$dirty && form.password.$error.required" class="help-block">Password is required</span>
+                </div>
+               
+                    <button type="submit" class="btn btn-lg btn-info">Register</button>
+               
+              </div>
+              </form>
+						</div> 
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+ </body>
+</html>

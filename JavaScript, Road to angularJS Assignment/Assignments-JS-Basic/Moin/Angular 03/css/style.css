@@ -1,0 +1,16 @@
+.margin-top-20{
+	margin-top: 20px;
+}
+.marginleft-40px{
+	margin-left: 40px;
+}
+span a{
+	color: white;
+}
+
+form input.ng-invalid {
+    background-color:pink;
+}
+form input.ng-valid {
+    background-color:lightgreen;
+}

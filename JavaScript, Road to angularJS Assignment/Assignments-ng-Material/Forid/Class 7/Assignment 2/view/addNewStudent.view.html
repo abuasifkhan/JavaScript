@@ -1,0 +1,75 @@
+<md-dialog aria-label="">
+    <form>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2> Add New Student Information </h2>
+            </div>
+        </md-toolbar>
+        <md-dialog-content style="min-width: 800px; max-height: 810px; padding: 15px">
+            <h1></h1>
+            <form>
+                <form method="post" autocomplete="off">
+                    <div layout-gt-sm="row">
+                        <md-input-container class="md-block" flex-gt-sm>
+                            <label>First name</label>
+                            <input ng-model="vm.student.firstName">
+                        </md-input-container>
+                        <md-input-container class="md-block" flex-gt-sm>
+                            <label>Last Name</label>
+                            <input ng-model="vm.student.lastName" required>
+                        </md-input-container>
+                    </div>
+                    <md-input-container class="md-block">
+                        <input ng-model="vm.student.age" type="text" placeholder="Age">
+                    </md-input-container>
+                                    
+                    <md-input-container class="md-block" flex-gt-sm>
+                        <label>Gender</label>
+                        <md-select ng-model="vm.student.gender">
+                            <md-option ng-repeat="gender in ['Male','Female']">
+                                {{gender}}
+                            </md-option>
+                        </md-select>
+                    </md-input-container> <br>
+
+                  <md-autocomplete 
+                            md-selected-item="vm.student.stClass" 
+                            md-search-text="vm.searchText" 
+                            md-items="stClass in vm.getMatches(vm.searchText)" 
+                            md-item-text="stClass"
+                            md-min-length="0"
+                            placeholder="Select your class">
+                    <span md-highlight-text="searchText">{{stClass}}</span>
+                  </md-autocomplete> <br> <br>
+
+<!--                     <md-input-container class="md-block" flex-gt-sm>
+                        <label>Class</label>
+                        <md-select ng-model="vm.student.stClass">
+                            <md-option ng-repeat="stClass in vm.stClasses">
+                                {{stClass}}
+                            </md-option>
+                        </md-select>
+                    </md-input-container> <br> -->
+
+                   <md-radio-group class="md-block" flex-gt-sm ng-model="vm.student.section">
+                      <label>Section</label>
+                      <md-radio-button layout-gt-sm="col" ng-repeat="section in ['Section A','Section B','Section C']" value='{{section}}'>{{section}}</md-radio-button>
+                   </md-radio-group> <br>
+
+                    <md-input-container class="md-block">
+                        <input ng-model="vm.student.roll" type="text" placeholder="Roll No.">
+                    </md-input-container>
+
+                    <md-datepicker ng-model="vm.student.birthDate" md-placeholder="Birth Date">
+                    </md-datepicker>
+
+                </form>
+                    <section layout="row" layout-align="center" layout-wrap>
+                          <md-button flex="40" class="md-raised md-primary" ng-click="vm.saveStudent()">Submit</md-button> 
+                          <md-button flex="40" class="md-raised md-warn" ng-click="vm.reset()">Reset</md-button>
+                    </section>
+
+        </md-dialog-content>
+
+    </form>
+</md-dialog>

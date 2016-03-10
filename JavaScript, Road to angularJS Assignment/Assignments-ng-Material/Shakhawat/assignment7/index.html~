@@ -1,0 +1,91 @@
+<!doctype html>
+<html ng-app="simpleApp">
+  <head>
+    <meta charset="UTF-8">
+    <title> test</title>
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.5/angular-material.min.css">
+      <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+      <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-animate.min.js"></script>
+      <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-aria.min.js"></script>
+      <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-messages.min.js"></script>
+      <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.5/angular-material.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+    <script src="cnt.js"></script>
+  </head>
+  <body>
+   <div ng-controller="simpleController">
+            <md-input-container>
+               <label>Search</label>
+            <input type="text" ng-model="search.name">
+            </md-input-container>
+
+<md-content class="md-padding" layout-xs="column" layout="row">
+   <div layout="row" layout-fill layout-align="center center" vertical-center-layout-fix class="flex">
+        <div class="center-container" flex layout="row" layout-align="center center">
+        <div flex="50" flex-md="50" flex-sm="70" flex-xs="100">
+  <md-card>
+   
+          
+            <md-toolbar>
+               <div class="md-toolbar-tools">
+                   <h2>Student Registration Form</h2>
+                   <span flex></span>
+               </div>
+         </md-toolbar>
+        
+    <form>
+      <md-input-container class="md-block" >
+       <label>Name</label>
+      <input type="text" ng-model="data.name" required>
+      </md-input-container>
+      <md-input-container class="md-block">
+       <label>Age</label>
+      <input type="number" ng-model="data.age" required>
+      </md-input-container>
+      <md-input-container >
+       <label>Class</label>
+      <input type="text" ng-model="data.class" required>
+      </md-input-container>
+      <md-input-container >
+       <label>Roll</label>
+      <input type="number" ng-model="data.roll" required>
+      </md-input-container>
+      <md-input-container >
+       <label>Birth Dath</label>
+      <input type="date" ng-model="data.date" required>
+      </md-input-container><br>
+      <md-radio-group ng-model="data.section">
+         <label>Section</label>
+       <md-radio-button ng-repeat="section in ['Section A','Section B','Section C']" value='{{section}}'>{{section}}</md-radio-button>
+        </md-radio-group>
+      <md-button flex="20" class="md-raised md-primary" ng-click="add()">Submit</md-button>
+    </form>
+  </div>
+    </md-card>
+ </md-content>
+ <div>
+  <md-input-container>
+   <label>Search</label>
+   <input type="text" ng-model="search.name">
+  </md-input-container>
+<div>
+<h2>Student List</h2>
+<md-list>
+  <md-divider></md-divider>
+  <md-list-item ng-repeat="en in col|filter :search"" ng-click="goToPerson(en, $event)">
+    <p>Name: {{ en.name }}, Roll: {{ en.roll }} </p>
+     <div  md-swipe-left="onSwipeLeft()">
+    <md-icon md-svg-icon="communication:messenger" ng-click="doSecondaryAction($event)" aria-label="Open Chat" class="md-secondary md-hue-3" ng-class="{'md-primary': person.newMessage}"></md-icon>
+       </div>
+  </md-list-item>
+</md-list>
+
+</div>
+
+  </body>
+</html>
+
+
+
+
+

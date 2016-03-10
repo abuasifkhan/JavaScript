@@ -1,0 +1,68 @@
+<html lang="en" >
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Angular Material style sheet -->
+  <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css">
+</head>
+<body ng-app="app" ng-controller="MainController as main" ng-cloak>
+    <md-content>
+        <md-toolbar>
+          <div class="md-toolbar-tools">
+            <md-button aria-label="Go Back">
+              Go Back
+            </md-button>
+            <h2>
+              <span>Student Management</span>
+            </h2>
+          </div>
+        </md-toolbar>
+  </md-content>
+    
+    <md-button  class="md-fab md-fab-top-right"  ng-click="showAdvanced($event)" >Add
+        <ng-md-icon icon="add"></ng-md-icon>
+    </md-button>
+    
+    <div layout-padding ng-cloak>
+      <br/>
+        <div layout="row" layout-xs="column">
+            <div flex class="md-padding">
+                <md-input-container class="md-icon-float md-block">
+                  <!-- Use floating label instead of placeholder -->
+                  <label>Name</label>
+                  <md-icon md-svg-src="img/icons/user157.svg" class="name"></md-icon>
+                  <input ng-model="user.name" type="text">
+                </md-input-container>
+
+                <md-input-container md-no-float="" class="md-block">
+                  <md-icon md-svg-src="img/icons/phone370.svg"></md-icon>
+                  <input ng-model="user.phone" type="text" placeholder="Phone Number">
+                </md-input-container>
+
+                <md-input-container class="md-block">
+                  <!-- Use floating placeholder instead of label -->
+                  <md-icon md-svg-src="img/icons/black402.svg" class="email"></md-icon>
+                  <input ng-model="user.email" type="email" placeholder="Email (required)" ng-required="true">
+                </md-input-container>
+
+                <md-input-container md-no-float="" class="md-block">
+                  <input ng-model="user.address" type="text" placeholder="Address">
+                  <md-icon md-svg-src="img/icons/map103.svg" style="display:inline-block;"></md-icon>
+                </md-input-container>
+            </div>
+        </div>
+    </div>
+
+ 
+  <!-- Angular Material requires Angular.js Libraries -->
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+  <script src="lib/angular.js"></script>
+  <script src="js/basic.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.min.js"></script>
+
+  <!-- Angular Material Library -->
+  <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script>
+  
+</body>
+</html>

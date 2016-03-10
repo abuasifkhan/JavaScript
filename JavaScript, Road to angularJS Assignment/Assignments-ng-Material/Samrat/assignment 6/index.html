@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-messages/angular-messages.js"></script>
+    <script src="bower_components/angular-aria/angular-aria.js"></script>
+    <script src="bower_components/angular-material/angular-material.js"></script>
+    <link rel="stylesheet" type="text/css" href="bower_components/angular-material/angular-material.css"></link>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.css"></link>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    
+    <script src="scripts/mainApp.js"></script>
+    <script src="scripts/routes.js"></script>
+    <script src="scripts/services/user.service.js"></script>
+    <script src="scripts/controllers/controller.js"></script>
+    <script src="scripts/controllers/list.controller.js"></script>
+    <script src="scripts/controllers/create-new.controller.js"></script>
+    <script src="scripts/controllers/view-details.controller.js"></script>
+
+
+    
+
+
+</head>
+
+<body ng-app="mainApp">
+    <div layout="row" layout-align="center center" ng-cloak>
+        <div>
+            <div>
+                <div>
+                    <button type="button" class="btn btn-success"><a ui-sref="list">User List</a></button>
+                    <button type="button" class="btn btn-success"><a ui-sref="create-new">Add User</a></button>
+                    <button type="button" class="btn btn-success"><a ui-sref="view-details">User Details</a></button>
+                </div>
+            </div>
+             <div ui-view>
+             </div>
+        </div>
+    </div>
+</body>
+</html>

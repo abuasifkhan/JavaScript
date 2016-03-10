@@ -1,0 +1,22 @@
+﻿<div flex-xs flex-gt-xs="30" layout="column">
+    <md-card>
+        <md-card-title>
+            <md-card-title-text>
+                <span class="md-headline">Student Details</span>
+            </md-card-title-text>
+        </md-card-title>
+        <div style="margin-left:20px">
+            <p><b>Name:</b>&emsp;{{ vm.selectedPerson.name }}</p>
+            <p><b>Age:</b>&emsp;{{ vm.selectedPerson.age }}</p>
+            <p><b>Class:</b>&emsp;{{ vm.selectedPerson._class }}</p>
+            <p><b>Section:</b>&emsp;{{ vm.selectedPerson.section }}</p>
+            <p><b>Roll:</b>&emsp;{{ vm.selectedPerson.roll }}</p>
+            <p><b>Bith Date:</b>&emsp;{{ vm.selectedPerson.DateOfBirth }}</p>
+    
+        </div>
+        
+        <md-card-actions layout="row" layout-align="end center">
+            <md-button ng-click="vm.deleteUser(vm.selectedPerson.index)">Delete</md-button>
+</md-card-actions>
+    </md-card>
+</div>

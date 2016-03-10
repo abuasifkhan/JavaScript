@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+
+    <!--Librery--->
+    <script type="text/javascript" src="lib/angular.min.js"></script>
+    <script type="text/javascript" src="lib/jquery-1.11.3-jquery.min.js"></script>
+        <script type="text/javascript" src="lib/angular-ui-router.js"></script>
+        <script type="text/javascript" src="lib/bootstrap.min.js"></script>
+        <link type="text/css" href="lib/bootstrap.min.css" rel="stylesheet" />
+    <!--------->
+    <!--Main App--->
+         <script src="scripts/mainApp.js"></script>
+    <!---------->
+    <!--controller-->
+        <script src="scripts/controller/home.controller.js"></script>
+        <script src="scripts/controller/create-user.controller.js"></script>
+        <script src="scripts/controller/update-user.controller.js"></script>
+        <script src="scripts/controller/user-details.controller.js"></script>
+        <script src="scripts/controller/user-list.controller.js"></script>
+
+    <!---------->
+    <!--Services-->
+
+        <script src="scripts/services/service.js"></script>
+    <!---------->
+    <!--derectives-->
+   
+    <!---------->
+
+</head>
+<body ng-app="mainApp">
+
+    <div ui-view></div>
+
+</body>
+</html>

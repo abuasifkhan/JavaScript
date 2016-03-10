@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html ng-app="dataEntry">
+<head>
+    <meta charset="UTF-8">
+    <title>dataEntry</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="index.js"></script>
+    <link href="index.css" rel="stylesheet">
+
+</head>
+<body>
+<div ng-controller="simpleController">
+    <table>
+        <tr ng-repeat="entry in collection">
+            <td><h1>  {{$index+1}}  </h1></td>
+            <td><h1> {{entry.Name}} </h1></td>
+            <td><h1> {{entry.Mobile}} </h1></td>
+        </tr>
+    </table>
+    <ol>
+        <li ng-repeat="entry in collection">Name: {{entry.Name}}
+            <br>Mobile: {{entry.Mobile}}</li>
+    </ol>
+    Name: <input type="text" ng-model="newName">
+    Mobile: <input type="text" ng-model="newMobile">
+    <button ng-click="pushData()">Add</button>
+    <button ng-click="findData()">Delete</button>
+
+</div>
+
+</body>
+</html>

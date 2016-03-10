@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+<html ng-app="address-book">
+  <head>
+    <title>JavaScript</title>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="angular.min.js"></script>
+    <script type="text/javascript" src="address-book.config.js"></script>
+    <script type="text/javascript" src="controller/address-book.controller.js"></script>
+  </head>
+  <body ng-controller="addressBookController as vm">
+    <div style="padding-left: 25%">
+        <div class="col-lg-5 well">
+          <h1 class="well well-sm" >Information Form</h1>
+            <div class="row" >
+              <form  method="POST" name="informationForm" ng-submit="vm.submit()" role="form">
+               <div class="col-xs-12">
+                <input type="hidden" ng-model="vm.person.id" />
+                <div class="form-group" ng-class="{ 'has-error': form.firstName.$dirty && form.firstName.$error.required }">
+                    <label for="username">First name</label>
+                    <input type="text" name="firstName" id="firstName" class="form-control" placeholder="First name" ng-model="vm.person.firstName" required />
+                    <span ng-show="form.firstName.$dirty && form.firstName.$error.required" class="help-block">First name is required</span>
+                </div>
+                <div class="form-group" ng-class="{ 'has-error': form.lastName.$dirty && form.lastName.$error.required }">
+                    <label for="username">Last name</label>
+                    <input type="text" name="lastName" id="Text1" class="form-control" placeholder="Last name" ng-model="vm.person.lastName" required />
+                    <span ng-show="form.lastName.$dirty && form.lastName.$error.required" class="help-block">Last name is required</span>
+                </div>
+                <div class="form-group" ng-class="{ 'has-error': form.Mobile.$dirty && form.Mobile.$error.required }">
+                    <label for="Mobile">Mobile</label>
+                    <input type="text" name="Mobile" id="Mobile" class="form-control" placeholder="Mobile" ng-model="vm.person.mobile" required />
+                    <span ng-show="form.Mobile.$dirty && form.Mobile.$error.required" class="help-block">Mobile is required</span>
+                </div>
+                <div class="form-group" ng-class="{ 'has-error': form.email.$dirty && form.password.$error.required }">
+                    <label for="Email">Email</label>
+                    <input type="email" name="email" id="email" class="form-control" placeholder="Email" ng-model="vm.person.email" required />
+                    <span ng-show="form.email.$dirty && form.email.$error.required" class="help-block">Email is required</span>
+                </div>
+                <div class="row">
+                       <div class="form-actions floatRight">
+                              <input type="submit"  value="{{!vm.person.id ? 'Add Person' : 'Update Info'}}" class="btn btn-primary btn-sm" >
+                              <button type="button" ng-click="vm.reset()" class="btn btn-warning btn-sm" >Clear All</button>
+                              <button type="button" ng-click="vm.showAll()" class="btn btn-info btn-sm" >Show All</button>
+                        </div>
+                 </div>
+              </div>
+              </form>
+            </div> 
+          </div>
+
+        <div ng-hide="vm.hideInfo">
+        <div class="col-lg-8 well" id="tab">
+          <h1 class="well well-lg">All Persons Information</h1>
+            <div class="row" >
+                  <table class="table table-hover">
+                      <thead>
+                          <tr>
+                              <th>Serial</th>
+                              <th>FirstName</th>
+                              <th>LastName</th>
+                              <th>Mobile</th>
+                              <th>Email</th>
+                              <th width="100"> </th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          <tr ng-repeat="person in vm.allPerson">
+                              <td><span ng-bind="person.id"></span></td>
+                              <td><span ng-bind="person.firstName"></span></td>
+                              <td><span ng-bind="person.lastName"></span></td>
+                              <td><span ng-bind="person.mobile"></span></td>
+                              <td><span ng-bind="person.email"></span></td>
+                              <td>
+                                  <button type="button" ng-click="vm.edit(person.id)" class="btn btn-success ">Edit</button> </td>
+                              <td>      
+                                  <button type="button" ng-click="vm.remove(person.id)" class="btn btn-danger ">Remove</button>
+                              </td>
+                          </tr>
+                      </tbody>
+                  </table>
+              </div>
+            </div>
+        </div>
+      </div>
+    </body>
+</html>

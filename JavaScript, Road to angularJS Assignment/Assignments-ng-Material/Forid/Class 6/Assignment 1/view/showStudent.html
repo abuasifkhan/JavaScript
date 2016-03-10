@@ -1,0 +1,60 @@
+<md-dialog aria-label="">
+    <form>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>Informations of {{vm.AllStudent[vm.CurrentStudent].firstName}} {{vm.AllStudent[vm.CurrentStudent].lastName}}  </h2>
+                <span flex></span>
+                <md-menu md-position-mode="target-right target">
+                    <md-button class="md-icon-button" aria-label="More" ng-click="$mdOpenMenu($event)">
+                        <!-- <md-icon md-svg-icon="images/more_vert.svg"></md-icon> -->
+                    </md-button>
+                    <md-menu-content width="2">
+                        <md-menu-item ng-repeat="item in ['Edit','Delete']">
+                            <md-button ng-click="vm.actionOnTicket(item)">
+                                <div>
+                                    <p flex>{{item}}</p>
+                                </div>
+                            </md-button>
+                        </md-menu-item>
+                    </md-menu-content>
+                </md-menu>
+
+                <!--<md-button class="md-icon-button" ng-click="cancel()">
+                    <md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
+                </md-button>-->
+            </div>
+        </md-toolbar>
+        <md-dialog-content style="min-width: 800px; max-height: 810px;">
+            <h1></h1>
+            <md-list>
+                <md-list-item>
+                    <p> Name : {{vm.AllStudent[vm.CurrentStudent].firstName}}  {{vm.AllStudent[vm.CurrentStudent].lastName}} </p>
+                </md-list-item>
+
+                <md-list-item>
+                    <p> Age: {{vm.AllStudent[vm.CurrentStudent].age}}</p>
+                </md-list-item>
+                <md-list-item>
+
+                    <p>Gender : {{vm.AllStudent[vm.CurrentStudent].gender}}</p>
+                </md-list-item>
+                <md-list-item>
+
+                    <p>Class : {{vm.AllStudent[vm.CurrentStudent].stClass}}</p>
+                </md-list-item>
+                <md-list-item>
+
+                    <p>Section : {{vm.AllStudent[vm.CurrentStudent].section}}</p>
+                </md-list-item>
+                 <md-list-item>
+                    <p>Roll No : {{vm.AllStudent[vm.CurrentStudent].roll}}</p>
+                </md-list-item>
+                <md-list-item>
+                    <p>Date of Birth : {{vm.AllStudent[vm.CurrentStudent].birthDate | date: 'dd/MM/yyyy'}} </p>
+                </md-list-item>
+            </md-list>
+
+        </md-dialog-content>
+
+    </form>
+</md-dialog>

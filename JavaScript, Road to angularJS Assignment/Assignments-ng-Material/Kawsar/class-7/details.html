@@ -1,0 +1,37 @@
+
+<md-dialog  ng-cloak flex="25">
+  <form>
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>Details Of Student</h2>
+        <span flex></span>
+      </div>
+    </md-toolbar>
+    
+      
+      
+<md-dialog-content>
+      <div class="md-dialog-content">
+<md-content layout="column">
+    <label>Name : {{name}}</label>  
+    <label>Age : {{age}}</label>  
+    <label>Class : {{class}}</label> 
+    <label>Section : {{section}}</label>       
+    <label>Roll No : {{roll}}</label>       
+    <label>Date Of Birth : {{date}}</label>         
+</md-content>
+          
+     </div>
+    
+    
+</md-dialog-content>
+<md-dialog-actions layout="row">
+      
+      <span flex></span>
+      
+      <md-button  class="md-raised md-primary" ng-click="cancel()" style="margin-right:20px;">
+        cancel
+      </md-button>
+</md-dialog-actions>
+  </form>
+</md-dialog>

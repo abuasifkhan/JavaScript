@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="appHomeWork">
+   <head>
+      <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.5/angular-material.min.css">
+      <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+      <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-animate.min.js"></script>
+      <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-aria.min.js"></script>
+      <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-messages.min.js"></script>
+      <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.5/angular-material.min.js"></script>
+      <script src="app.js"></script>
+   </head>
+<body ng-controller="SubmitController" >
+      
+    
+   <!-- 
+    <md-toolbar layout="row" >
+         <span flex="30"><h4>Student Registration Form</h4></span>
+        <ng-md-icon icon="search">Search</ng-md-icon>
+<md-autocomplete flex="60" md-selected-item="selectedItem" md-search-text="searchText" md-items="item in getMatches(searchText)" md-item-text="item.display">
+  <md-item-template>
+    <span md-highlight-text="searchText"></span>
+  </md-item-template >
+  <md-not-found>
+    No matches found.
+  </md-not-found>
+</md-autocomplete>
+        
+    </md-toolbar>
+    -->
+    
+          
+    <md-toolbar> 
+    
+        <h3>Student Registration and Details</h3>
+    </md-toolbar>
+    
+    <br><br>
+    
+    <!--
+     <md-toolbar ng-show="!showSearch">
+        <div class="md-toolbar-tools">
+          <md-button ng-click="toggleSidenav('left')" hide-gt-md aria-label="Menu">
+            <ng-md-icon icon="menu"></ng-md-icon>
+          </md-button>
+          <h3>
+           Student Registration
+          </h3>
+          <span flex></span>
+          <md-button aria-label="Search" ng-click="showSearch = !showSearch">
+            <ng-md-icon icon="search">Search</ng-md-icon>
+          </md-button>
+          <md-button aria-label="Open Settings" ng-click="showListBottomSheet($event)">
+            <ng-md-icon icon="more_vert"></ng-md-icon>
+          </md-button>
+        </div>
+        <!--
+        <md-tabs md-stretch-tabs class="md-primary" md-selected="data.selectedIndex">
+          <md-tab id="tab1" aria-controls="tab1-content">
+            Sign Up
+          </md-tab>
+          <md-tab id="tab2" aria-controls="tab2-content">
+            Details
+          </md-tab>
+        </md-tabs>
+       
+      </md-toolbar>
+
+    <md-toolbar class="md-hue-1" ng-show="showSearch">
+        <div class="md-toolbar-tools">
+          <md-button ng-click="showSearch = !showSearch" aria-label="Back">
+            <ng-md-icon icon="arrow_back"></ng-md-icon>
+          </md-button>
+          <h3 flex="10">
+            Back
+          </h3>
+          <md-input-container md-theme="input" flex>
+            <label>&nbsp;</label>
+            <input ng-model="search.who" placeholder="enter search">
+          </md-input-container>
+          <md-button aria-label="Search" ng-click="showSearch = !showSearch">
+            <ng-md-icon icon="search"></ng-md-icon>
+          </md-button>
+          <md-button aria-label="Open Settings" ng-click="showListBottomSheet($event)">
+            <ng-md-icon icon="more_vert"></ng-md-icon>
+          </md-button>
+        </div>
+       
+      </md-toolbar>
+    -->
+   <md-button  class="md-fab md-fab-top-right"   ng-click="showAdvanced($event)"   >Add<ng-md-icon icon="add"></ng-md-icon></md-button>
+    
+    
+    
+    <div layout="row">
+    
+    
+    
+        <div flex="25"></div>
+       
+        <md-list flex="50">
+      
+      <md-list-item class="md-3-line" ng-repeat="item in students"  ng-click="showDetails($event , item)">
+       
+        <div class="md-list-item-text" layout="column"  md-swipe-left="showDialog()">
+          <h3>Name : {{ item.name }}</h3>
+          <h4>Roll : {{item.roll}}</h4>
+          <md-subheader >{{item.class}}</md-subheader>    
+          <md-divider ></md-divider>
+        </div>
+          
+          
+      </md-list-item>
+      
+       </md-list>
+    
+    
+        
+        <div flex="25"></div>
+    </div>
+    
+    
+   
+    
+    
+    </body>
+</html>
+

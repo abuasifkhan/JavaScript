@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Registration</title>
+
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.5/angular-material.min.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-animate.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-aria.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-messages.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.5/angular-material.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="background.js"></script>
+</head>
+<body ng-app="toolbarDemo1" ng-cloak>
+
+<div ng-controller="AppCtrl">
+    <div>
+        <md-toolbar >
+            <div class="md-toolbar-tools" layout="row" layout-align="space-between">
+                <h3 flex><span>Home Work!</span></h3>
+                <md-autocomplete
+                        ng-show="isVisible"
+                        md-selected-item="selectedItem"
+                        md-search-text="searchText"
+                        md-search-text-change="searchTextChange(searchText)"
+                        md-selected-item-change="selectedItemChange(item)"
+                        md-items="item in infos | filter:searchText"
+                        md-item-text="item.Name"
+                        md-min-length="0"
+                        placeholder="Enter Name of Student">
+                    <md-item-template>
+                        <span md-highlight-text="searchText" md-highlight-flags="^i">{{item.Name}}</span>
+                    </md-item-template>
+                    <md-not-found>
+                        No student found.
+                    </md-not-found>
+                </md-autocomplete>
+                <md-button class="md-icon-button" aria-label="Search" ng-click="searchClicked()" align="right">
+                    <md-icon md-svg-icon="search.svg"></md-icon>
+                </md-button>
+
+            </div>
+        </md-toolbar>
+        <div layout="column" >
+            <div class="md-padding md-raised" layout="row" layout-wrap layout-align="center">
+                <md-card ng-repeat="info in infos | orderBy:'Name' | filter:searchText" ng-click="showDialog($index)">
+                    <md-card-title>
+                        <md-card-title-text>
+                            <span class="md-headline">Name: {{info.Name}}</span>
+                            <span class="md-subheader">Roll: {{info.Roll}}</span>
+                        </md-card-title-text>
+                    </md-card-title>
+                </md-card>
+            </div>
+            <form ng-submit="pushData()" layout="column">
+                <md-input-container >
+                    <label>Name</label>
+                    <input ng-model="NAME" type="text" placeholder="Enter Your Name" required>
+                </md-input-container>
+
+                <md-input-container>
+                    <label>Roll</label>
+                    <input ng-model="roll" type="number" required>
+                </md-input-container>
+
+                <md-input-container>
+                    <label>Age</label>
+                    <input ng-model="age" type="number" required>
+                </md-input-container>
+
+                <md-input-container>
+                    <label>Class</label>
+                    <input ng-model="Cls" type="number" required>
+                </md-input-container>
+
+                <md-radio-group ng-model="section" required>
+                    <label>Section</label>
+                    <md-radio-button value="A">Section A</md-radio-button>
+                    <md-radio-button value="B">Section B</md-radio-button>
+                </md-radio-group>
+
+                <h4>Pick you birthday</h4>
+                <md-datepicker ng-model="dateOfBirth" md-placeholder="Enter your birthday" required></md-datepicker>
+
+                <div layout-align="center center">
+                    <md-button class="md-raised md-primary" type="submit">Save</md-button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

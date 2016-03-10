@@ -1,0 +1,29 @@
+﻿<div>
+    <h1>User Registration</h1>
+    <form name="myForm" novalidate>
+
+        <p>
+            Username:<br>
+            <input type="text" name="user" ng-model="vm.user.username" required>
+            <span style="color: red" ng-show="myForm.user.$dirty && myForm.user.$invalid">
+                <span ng-show="myForm.user.$error.required">Username is required.</span>
+            </span>
+        </p>
+
+        <p>
+            Email:<br>
+            <input type="email" name="email" ng-model="vm.user.email" required>
+            <span style="color: red" ng-show="myForm.email.$dirty && myForm.email.$invalid">
+                <span ng-show="myForm.email.$error.required">Email is required.</span>
+                <span ng-show="myForm.email.$error.email">Invalid email address.</span>
+            </span>
+        </p>
+
+        <p>
+            <input type="submit" ng-click="vm.addUser(vm.user)"
+                   ng-disabled="myForm.user.$dirty && myForm.user.$invalid ||
+                        myForm.email.$dirty && myForm.email.$invalid">
+        </p>
+
+    </form>
+</div>

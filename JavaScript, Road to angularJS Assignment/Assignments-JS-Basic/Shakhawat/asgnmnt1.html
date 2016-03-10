@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>form </title>
+</head>
+<body>
+
+<h1>test form</h1>
+<form action="">
+First name:<br>
+<input type="text" name="firstname" size="40">
+<br>
+Last name:<br>
+<input type="text" name="lastname">
+</form>
+
+
+ <FORM action="http://somesite.com/prog/adduser" method="post">
+    <P>
+    <LABEL for="firstname">First name: </LABEL>
+              <INPUT type="text" id="firstname"><BR>
+    <LABEL for="lastname">Last name: </LABEL>
+              <INPUT type="text" id="lastname"><BR>
+    <LABEL for="email">email: </LABEL>
+              <INPUT type="text" id="email"><BR>
+    <INPUT type="radio" name="sex" value="Male"> Male<BR>
+    <INPUT type="radio" name="sex" value="Female"> Female<BR>
+    <INPUT type="submit" value="Send"> <INPUT type="reset">
+    </P>
+ </FORM>
+
+
+
+
+
+
+<FORM action="..." method="post">
+ <P>
+ <FIELDSET>
+  <LEGEND>Personal Information</LEGEND>
+  Last Name: <INPUT name="personal_lastname" type="text" tabindex="1">
+  First Name: <INPUT name="personal_firstname" type="text" tabindex="2">
+  Address: <INPUT name="personal_address" type="text" tabindex="3">
+  ...more personal information...
+ </FIELDSET>
+ <FIELDSET>
+  <LEGEND>Medical History</LEGEND>
+  <INPUT name="history_illness" 
+         type="checkbox" 
+         value="Smallpox" tabindex="20"> Smallpox
+  <INPUT name="history_illness" 
+         type="checkbox" 
+         value="Mumps" tabindex="21"> Mumps
+  <INPUT name="history_illness" 
+         type="checkbox" 
+         value="Dizziness" tabindex="22"> Dizziness
+  <INPUT name="history_illness" 
+         type="checkbox" 
+         value="Sneezing" tabindex="23"> Sneezing
+  ...more medical history...
+ </FIELDSET>
+ <FIELDSET>
+  <LEGEND>Current Medication</LEGEND>
+  Are you currently taking any medication? 
+  <INPUT name="medication_now" 
+         type="radio" 
+         value="Yes" tabindex="35">Yes
+  <INPUT name="medication_now" 
+         type="radio" 
+         value="No" tabindex="35">No
+
+  If you are currently taking medication, please indicate
+  it in the space below:
+  <TEXTAREA name="current_medication" 
+            rows="20" cols="50"
+            tabindex="40">
+  </TEXTAREA>
+ </FIELDSET>
+</FORM>
+
+
+</body>
+</html>

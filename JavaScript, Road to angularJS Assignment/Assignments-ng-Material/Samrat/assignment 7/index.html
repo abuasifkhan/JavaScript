@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+
+    <!--Librery--->
+
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.5/angular-material.min.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-animate.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-aria.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-messages.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.5/angular-material.min.js"></script>
+    <script type="text/javascript" src="lib/angular-ui-router.js"></script>
+            
+    <!--------->
+    <!--Main App--->
+         <script src="scripts/mainApp.js"></script>
+    <!---------->
+    <!--controller-->
+        <script src="scripts/controller/home.controller.js"></script>
+        <script src="scripts/controller/create-user.controller.js"></script>
+        <script src="scripts/controller/update-user.controller.js"></script>
+        <script src="scripts/controller/user-details.controller.js"></script>
+        <script src="scripts/controller/user-list.controller.js"></script>
+
+    <!---------->
+    <!--Services-->
+
+        <script src="scripts/services/service.js"></script>
+    <!---------->
+    <!--derectives-->
+   
+    <!---------->
+    <link href="style/style.css" rel="stylesheet" />
+</head>
+<body ng-app="mainApp">
+
+    <div ui-view></div>
+
+</body>
+</html>

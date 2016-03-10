@@ -1,0 +1,42 @@
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Serial</th>
+                                <th>FirstName</th>
+                                <th>LastName</th>
+                                <th>Mobile</th>
+                                <th>Email</th>
+                                <th width="80"> </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="person in vm.allPerson" >
+                                  <td><span>{{$index + 1}}</span></td>
+                                  <td>
+                                    <span ng-hide="editMode" ng-bind="person.firstName"></span>
+                                    <input type="text" ng-show="editMode" ng-model="person.firstName" />
+                                  </td>
+                                  <td>
+                                    <span ng-hide="editMode" ng-bind="person.lastName"></span>
+                                    <input type="text" ng-show="editMode" ng-model="person.lastName" />
+                                  </td>
+                                  <td >
+                                    <span ng-hide="editMode" ng-bind="person.mobile"></span>
+                                    <input type="text" ng-show="editMode" ng-model="person.mobile" />
+                                  </td>
+                                  <td>
+                                    <span ng-hide="editMode" ng-bind="person.email"></span>
+                                    <input type="text" ng-show="editMode" ng-model="person.email" />
+                                  </td>
+                                  <td >
+                                    <span><button type="button" ng-hide="editMode" ng-click="editMode = true;" class="btn btn-info ">Edit</button> </span> 
+                                  </td>
+                                  <td>  
+                                    <span> <button type="button" ng-show="editMode" ng-click="editMode = false; vm.edit(person.id)" class="btn btn-success ">Save</button></span>
+                                  </td>
+                                  <td>  
+                                    <span> <input type="button" value="Delete" ng-click="vm.remove(person.id)" class="btn btn-danger" /></span>    
+                                  </td>                        
+                            </tr>
+                        </tbody>
+                    </table>

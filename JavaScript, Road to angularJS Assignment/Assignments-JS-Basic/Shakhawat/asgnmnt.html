@@ -1,0 +1,84 @@
+<html>
+
+   <head>
+   
+      <script type="text/javascript">
+
+
+
+                 var n=5;
+		var nA=[1,2,3,4,5];
+		var m=3;
+		var mA = [
+			[ 'p' ,0,1],
+			['s', 1],
+			['r']
+		];        
+          function inputObject  () {
+               
+             var count ;
+           for( count=0;count<m;count++)
+              {
+                  if(mA[count][0]=='s')
+                   add(count);
+                  else if(mA[count][0]=='m')
+                      mul(count);
+                 else if (mA[count][0]=='d')
+                      div(count);
+                 else if(mA[count][0]=='r')
+                         rever(count);
+                 else if (mA[count][0]=='p')
+                       swap(count);
+
+              }
+         var cnt;
+         for(cnt=0;cnt<n;cnt++)
+          document.write(nA[cnt],"\n");
+		
+	}
+function add(count)
+{
+  var cnt;
+  for(cnt=0;cnt<n;cnt++)
+     nA[cnt]=nA[cnt]+mA[count][1];
+
+}
+function mul(count)
+{
+  var cnt;
+  for(cnt=0;cnt<n;cnt++)
+     nA[cnt]=nA[cnt]*mA[count][1];
+}
+function div(count)
+{
+  var cnt;
+  for(cnt=0;cnt<n;cnt++)
+     nA[cnt]=nA[cnt]/mA[count][1];
+}
+function rever(count)
+{
+  var cnt;
+  var bb = new Array(100);
+  for(cnt=0;cnt<n;cnt++)
+      bb[n-1-cnt]=nA[cnt];
+ for(cnt=0;cnt<n;cnt++)
+     nA[cnt]=bb[cnt];
+ 
+}
+function swap(count)
+{
+  var tem;
+  tem=nA[mA[count][1]];
+ nA[mA[count][1]]=nA[mA[count][2]];
+ nA[mA[count][2]]=tem;
+
+}
+      </script>
+      
+   </head>
+   
+   <body>
+      <input type="button" onclick="inputObject  ()" value="output" />
+   </body>
+   
+</html>
