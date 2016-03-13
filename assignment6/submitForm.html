@@ -1,0 +1,44 @@
+<md-dialog aria-label="Details of Student"  ng-cloak >
+    <md-toolbar layout-align='center center'>
+        <span>Add New Student</span>
+    </md-toolbar>
+    <form ng-submit="pushData()" layout="column" layout-margin>
+        <md-input-container ng-padding>
+            <label>Name</label>
+            <input ng-model="NAME" type="text" placeholder="Enter Your Name" required>
+        </md-input-container>
+
+        <md-input-container >
+            <label>Roll</label>
+            <input ng-model="roll" type="number" required>
+        </md-input-container>
+
+        <md-input-container>
+            <label>Age</label>
+            <input ng-model="age" type="number" required>
+        </md-input-container>
+
+        <md-input-container>
+            <label>Year</label>
+            <!-- <input ng-model="Cls" type="number" required> -->
+            <md-select ng-model="Cls" required>
+                <md-option ng-repeat="class in ['1','2', '3', '4']">
+                    {{class}}
+                </md-option>
+            </md-select>
+        </md-input-container>
+
+        <md-radio-group ng-model="section" required>
+            <label>Section</label>
+            <md-radio-button value="A">Section A</md-radio-button>
+            <md-radio-button value="B">Section B</md-radio-button>
+        </md-radio-group>
+
+        <h4>Pick you birthday</h4>
+        <md-datepicker ng-model="dateOfBirth" md-placeholder="Enter your birthday" required></md-datepicker>
+
+        <div align="center">
+            <md-button class="md-raised md-primary" type="submit">Save</md-button>
+        </div>
+    </form>
+</md-dialog>
